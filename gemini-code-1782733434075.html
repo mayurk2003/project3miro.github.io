@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marketing Strategy Case Study - Mayur Kharde</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+
+  <style>
+    :root {
+      --bg-main: #0f172a;
+      --surface-1: #1e293b;
+      --surface-2: rgba(30, 41, 59, 0.7);
+      --border: rgba(255, 255, 255, 0.1);
+      --border-accent: rgba(99, 102, 241, 0.5);
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --text-accent: #818cf8;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body { 
+      font-family: var(--font-sans); 
+      background-color: var(--bg-main);
+      color: var(--text-primary);
+      padding: 40px;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
+      border-radius: 20px;
+      padding: 56px 48px;
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      border: 1px solid var(--border);
+    }
+    
+    .hero-content {
+      max-width: 600px;
+      z-index: 2;
+    }
+
+    .hero::before {
+      content: ''; position: absolute; top: -60px; right: -60px; width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(99,102,241,0.25) 0%, transparent 70%); border-radius: 50%;
+    }
+    
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.3);
+      color: #a5b4fc; font-size: 13px; font-weight: 600; padding: 6px 16px; 
+      border-radius: 30px; margin-bottom: 24px;
+    }
+    
+    .hero h1 {
+      font-size: 36px; font-weight: 700; color: #ffffff;
+      line-height: 1.2; margin-bottom: 16px; letter-spacing: -0.5px;
+    }
+    
+    .hero p { font-size: 15px; color: var(--text-secondary); margin-bottom: 32px; }
+    
+    .hero-meta { display: flex; gap: 24px; flex-wrap: wrap; }
+    .hero-meta-item {
+      display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: var(--text-muted);
+    }
+    .hero-meta-item i { font-size: 18px; color: var(--text-accent); }
+
+    .hero-illustration {
+      width: 250px;
+      height: 250px;
+      background: rgba(255,255,255,0.05);
+      border: 1px dashed rgba(255,255,255,0.2);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 13px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      z-index: 2;
+    }
+
+    /* SECTION HEADINGS */
+    .section-label {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
+      color: var(--text-accent); text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .section-label i { font-size: 18px; }
+    .section-label::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+
+    /* OVERVIEW GRID */
+    .overview-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 40px;
+    }
+    .ov-card {
+      background: var(--surface-1); border: 1px solid var(--border);
+      border-radius: 16px; padding: 24px; border-left: 4px solid;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .ov-card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+    .ov-card.purple { border-left-color: #818cf8; }
+    .ov-card.teal   { border-left-color: #2dd4bf; }
+    .ov-card.amber  { border-left-color: #fbbf24; }
+    .ov-card.coral  { border-left-color: #f87171; }
+    .ov-card-label { font-size: 11px; font-weight: 600; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.1em; }
+    .ov-card h3 { font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 10px; }
+    .ov-card p  { font-size: 14px; color: var(--text-secondary); }
+
+    /* JOURNEY MAP */
+    .journey-wrap { overflow-x: auto; padding-bottom: 12px; margin-bottom: 40px; }
+    .journey { display: flex; gap: 0; min-width: 800px; }
+    .j-stage {
+      flex: 1; position: relative; padding: 24px 20px; border-radius: 0; border-top: 4px solid;
+      text-align: center; cursor: pointer; transition: all 0.2s ease; background: var(--surface-2); border-right: 1px solid var(--border);
+    }
+    .j-stage:hover { transform: translateY(-5px); background: var(--surface-1); }
+    .j-stage:first-child { border-radius: 16px 0 0 16px; }
+    .j-stage:last-child  { border-radius: 0 16px 16px 0; border-right: none; }
+    
+    .js-awareness  { border-top-color: #818cf8; }
+    .js-consider   { border-top-color: #2dd4bf; }
+    .js-convert    { border-top-color: #fbbf24; }
+    .js-retain     { border-top-color: #fb923c; }
+    .js-advocate   { border-top-color: #34d399; }
+
+    .j-icon { font-size: 28px; margin-bottom: 12px; display: block; }
+    .j-name { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+    .j-action { font-size: 12px; color: var(--text-secondary); margin-bottom: 12px; }
+    .j-kpi {
+      display: inline-block; font-size: 10px; font-weight: 600; padding: 4px 10px; border-radius: 20px;
+      background: rgba(255,255,255,0.1); color: var(--text-primary);
+    }
+
+    /* CAMPAIGN FRAMEWORK */
+    .campaign-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 40px;
+    }
+    .camp-card {
+      background: var(--surface-1); border: 1px solid var(--border);
+      border-radius: 16px; padding: 20px;
+    }
+    .camp-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .camp-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center; font-size: 18px;
+    }
+    .camp-card h4 { font-size: 15px; font-weight: 600; color: #fff; }
+    .camp-list { list-style: none; }
+    .camp-list li {
+      font-size: 13px; color: var(--text-secondary); padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; align-items: flex-start; gap: 8px;
+    }
+    .camp-list li:last-child { border-bottom: none; }
+    .camp-list li i { font-size: 16px; margin-top: 2px; } /* Icons for main points */
+
+    /* STICKY NOTES */
+    .sticky-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 40px;
+    }
+    .sticky {
+      border-radius: 12px; padding: 16px; font-size: 13px; font-weight: 500;
+      cursor: pointer; transition: transform 0.2s; position: relative; overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .sticky:hover { transform: rotate(0deg) scale(1.05) !important; z-index: 10; box-shadow: 0 10px 15px rgba(0,0,0,0.2); }
+    
+    .sticky-yellow  { background: #fef08a; color: #713f12; }
+    .sticky-pink    { background: #fbcfe8; color: #831843; }
+    .sticky-blue    { background: #bfdbfe; color: #1e3a5f; }
+    .sticky-green   { background: #bbf7d0; color: #14532d; }
+    .sticky-orange  { background: #fed7aa; color: #7c2d12; }
+    .sticky-purple  { background: #e9d5ff; color: #581c87; }
+    
+    .sticky-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; opacity: 0.7; margin-bottom: 8px;
+    }
+
+    /* TOOLS */
+    .tools-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
+    .tool-pill {
+      display: flex; align-items: center; gap: 10px;
+      background: var(--surface-1); border: 1px solid var(--border);
+      border-radius: 12px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: var(--text-primary);
+      transition: all 0.2s ease; cursor: default;
+    }
+    .tool-pill:hover { border-color: var(--text-muted); background: var(--surface-2); }
+    
+    /* FOOTER */
+    .footer {
+      text-align: center; padding: 32px 0 16px; font-size: 13px; font-weight: 500;
+      color: var(--text-muted); border-top: 1px solid var(--border);
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-badge"><i class="ti ti-chart-dots" aria-hidden="true"></i> Portfolio Case Study</div>
+      <h1>Marketing Strategy Planning<br>with Miro</h1>
+      <p>A complete walkthrough of how a marketing professional uses collaborative tools to plan campaigns, map customer journeys, and align business objectives with customer needs.</p>
+      <div class="hero-meta">
+        <div class="hero-meta-item"><i class="ti ti-calendar-event"></i> 2024 — 2026</div>
+        <div class="hero-meta-item"><i class="ti ti-briefcase"></i> Digital Marketing Strategist</div>
+        <div class="hero-meta-item"><i class="ti ti-target"></i> B2B &amp; B2C Campaigns</div>
+        <div class="hero-meta-item"><i class="ti ti-map-pin"></i> India Market</div>
+      </div>
+    </div>
+    
+    <div class="hero-illustration">
+      <img src="https://tse4.mm.bing.net/th/id/OIP.ZcqUlJi59wSd3Vo1Z0wAaQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="3D Fintech Illustration" style="max-width: 90%; max-height: 90%; display: block;">
+    </div>
+  </div>
+
+  <div class="section-label"><i class="ti ti-layout-grid"></i> 01 · Project overview</div>
+  <div class="overview-grid">
+    <div class="ov-card purple">
+      <div class="ov-card-label">Objective</div>
+      <h3>Build a scalable campaign system</h3>
+      <p>Design repeatable marketing workflows that reduce planning time by 40% and improve cross-team visibility on all active campaigns.</p>
+    </div>
+    <div class="ov-card teal">
+      <div class="ov-card-label">Target audience</div>
+      <h3>Retail Traders &amp; Investors</h3>
+      <p>Active day traders, F&amp;O participants, and retail investors seeking real-time market data and AI-driven stock insights. Fast-paced, data-hungry, and mobile-first.</p>
+    </div>
+    <div class="ov-card amber">
+      <div class="ov-card-label">Business goals</div>
+      <h3>Pipeline &amp; brand growth</h3>
+      <p>Generate 200+ MQLs per quarter, grow organic reach by 3×, and establish TickerKey as a trusted fintech brand in retail investor circles.</p>
+    </div>
+    <div class="ov-card coral">
+      <div class="ov-card-label">Key challenges</div>
+      <h3>Fragmented tools &amp; data silos</h3>
+      <p>Disconnected CRM data, inconsistent messaging across channels, and no single source of truth for campaign performance.</p>
+    </div>
+  </div>
+
+  <div class="section-label"><i class="ti ti-route"></i> 02 · Customer journey map</div>
+  <div class="journey-wrap">
+    <div class="journey">
+      <div class="j-stage js-awareness">
+        <span class="j-icon">🔍</span>
+        <div class="j-name">Awareness</div>
+        <div class="j-action">Discovers brand via Instagram ads, SEO, or LinkedIn content</div>
+        <span class="j-kpi">KPI: Reach &amp; Impressions</span>
+      </div>
+      <div class="j-stage js-consider">
+        <span class="j-icon">🤔</span>
+        <div class="j-name">Consideration</div>
+        <div class="j-action">Visits website, reads case studies, compares competitors</div>
+        <span class="j-kpi">KPI: Time on site</span>
+      </div>
+      <div class="j-stage js-convert">
+        <span class="j-icon">🎯</span>
+        <div class="j-name">Conversion</div>
+        <div class="j-action">Books a demo, signs up, or makes first purchase</div>
+        <span class="j-kpi">KPI: CVR %</span>
+      </div>
+      <div class="j-stage js-retain">
+        <span class="j-icon">💎</span>
+        <div class="j-name">Retention</div>
+        <div class="j-action">Engages with product, receives nurture emails and onboarding</div>
+        <span class="j-kpi">KPI: Churn rate</span>
+      </div>
+      <div class="j-stage js-advocate">
+        <span class="j-icon">📣</span>
+        <div class="j-name">Advocacy</div>
+        <div class="j-action">Refers friends, leaves reviews, shares content organically</div>
+        <span class="j-kpi">KPI: NPS score</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label"><i class="ti ti-layout-columns"></i> 03 · Campaign planning framework</div>
+  <div class="campaign-grid">
+    <div class="camp-card">
+      <div class="camp-card-header">
+        <div class="camp-icon" style="background:rgba(129,140,248,0.15)"><i class="ti ti-target" style="color:#818cf8"></i></div>
+        <h4>Campaign objectives</h4>
+      </div>
+      <ul class="camp-list">
+        <li><i class="ti ti-circle-check" style="color:#818cf8"></i> Brand awareness uplift</li>
+        <li><i class="ti ti-circle-check" style="color:#818cf8"></i> Lead volume increase</li>
+        <li><i class="ti ti-circle-check" style="color:#818cf8"></i> App installs &amp; signups</li>
+      </ul>
+    </div>
+    
+    <div class="camp-card">
+      <div class="camp-card-header">
+        <div class="camp-icon" style="background:rgba(45,212,191,0.15)"><i class="ti ti-users" style="color:#2dd4bf"></i></div>
+        <h4>Target personas</h4>
+      </div>
+      <ul class="camp-list">
+        <li><i class="ti ti-user-check" style="color:#2dd4bf"></i> Retail investor (22–35)</li>
+        <li><i class="ti ti-user-check" style="color:#2dd4bf"></i> EV brand CMO</li>
+        <li><i class="ti ti-user-check" style="color:#2dd4bf"></i> Startup founder</li>
+      </ul>
+    </div>
+
+    <div class="camp-card">
+      <div class="camp-card-header">
+        <div class="camp-icon" style="background:rgba(251,191,36,0.15)"><i class="ti ti-broadcast" style="color:#fbbf24"></i></div>
+        <h4>Marketing channels</h4>
+      </div>
+      <ul class="camp-list">
+        <li><i class="ti ti-brand-instagram" style="color:#fbbf24"></i> Instagram &amp; Meta Ads</li>
+        <li><i class="ti ti-brand-linkedin" style="color:#fbbf24"></i> LinkedIn organic</li>
+        <li><i class="ti ti-brand-google" style="color:#fbbf24"></i> Google Search SEM</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-label"><i class="ti ti-bulb"></i> 04 · Brainstorming &amp; ideation board</div>
+  <div class="sticky-grid" id="sticky-board"></div>
+
+  <div class="section-label"><i class="ti ti-tools"></i> 05 · Tools used</div>
+  <div class="tools-row">
+    <div class="tool-pill"><i class="ti ti-brand-miro" style="color:#f6a631; font-size: 20px;"></i> Miro</div>
+    <div class="tool-pill"><i class="ti ti-brush" style="color:#7c3aed; font-size: 20px;"></i> Canva</div>
+    <div class="tool-pill"><i class="ti ti-chart-pie" style="color:#e37400; font-size: 20px;"></i> Google Analytics</div>
+    <div class="tool-pill"><i class="ti ti-database" style="color:#ff7a59; font-size: 20px;"></i> HubSpot CRM</div>
+    <div class="tool-pill"><i class="ti ti-file-spreadsheet" style="color:#217346; font-size: 20px;"></i> Excel</div>
+  </div>
+
+  <div class="footer">Mayur Kharde · Digital Marketing & BDE Portfolio · 2026</div>
+
+</div>
+
+<script>
+  // Generate random rotation for sticky notes to make them look authentic
+  const stickies = [
+    { color: 'yellow', cat: 'Growth ideas',  text: 'Referral program with stock-tip rewards for TickerKey users' },
+    { color: 'pink',   cat: 'Pain points',   text: 'Users struggle to track stocks mid-conversation on mobile' },
+    { color: 'blue',   cat: 'Content ideas', text: 'Weekly "Nifty 50 watch" carousel post for Instagram' },
+    { color: 'green',  cat: 'Lead gen',      text: 'LinkedIn outreach to EV brand CMOs with a free audit offer' },
+    { color: 'orange', cat: 'Partnerships',  text: 'Co-market with SEBI-registered advisors for credibility' },
+    { color: 'purple', cat: 'Growth ideas',  text: 'Affiliate programme for finance influencers & YouTubers' },
+    { color: 'yellow', cat: 'Pain points',   text: 'Real-time quotes missing from most keyboard apps today' },
+    { color: 'pink',   cat: 'Content ideas', text: 'Behind-the-scenes: how our AI picks trending stocks' },
+  ];
+  
+  const board = document.getElementById('sticky-board');
+  stickies.forEach(s => {
+    const el = document.createElement('div');
+    el.className = `sticky sticky-${s.color}`;
+    el.style.transform = `rotate(${(Math.random() * 6 - 3).toFixed(1)}deg)`;
+    el.innerHTML = `<div class="sticky-label">${s.cat}</div>${s.text}`;
+    board.appendChild(el);
+  });
+</script>
+
+</body>
+</html>
